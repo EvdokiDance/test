@@ -24,16 +24,17 @@ const DocumentActions: React.FC<Props> = ({
     }
   }, [])
 
-  const handlePrintOrDownload = async (print = false) => {
+  const handlePrintOrDownload = async (print = false, scale?: number) => {
+
     if (hiddenElementRef.current) {
       hiddenElementRef.current!.style.display = 'block'
       documentRef.current.appendChild(hiddenElementRef.current!)
-      await printOrDownloadDoc(documentRef, print)
+      await printOrDownloadDoc(documentRef, print, scale)
       hiddenElementRef.current!.style.display = 'none'
       return
     }
 
-    await printOrDownloadDoc(documentRef, print)
+    return await printOrDownloadDoc(documentRef, print, scale)
   }
 
   return (
@@ -48,7 +49,7 @@ const DocumentActions: React.FC<Props> = ({
     >
       <CButton
         disabled={loading}
-        onClick={() => handlePrintOrDownload(true)}
+        onClick={() => handlePrintOrDownload(true, 1)}
         color="primary"
         style={{
           minWidth: '150px',

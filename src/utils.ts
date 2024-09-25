@@ -74,6 +74,7 @@ export async function printOrDownloadDoc(
     heightLeft -= pageHeight
   }
 
+  console.log(pdf.output('datauristring'))
   print ? pdf.output('dataurlnewwindow') : pdf.save()
 }
 
