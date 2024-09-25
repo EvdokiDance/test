@@ -1094,10 +1094,6 @@ const OrderDetail = (): JSX.Element => {
                         <></>
                       )}
                     </div>
-                    <DocumentActions
-                      documentRef={firstSectionRef}
-                      hiddenSelectorEl=".sign-section"
-                    />
                   </div>
                   <div
                     className="sign-section"
@@ -1136,6 +1132,13 @@ const OrderDetail = (): JSX.Element => {
                   </div>
                 </CForm>
               </CCol>
+              <DocumentActions
+                style={{
+                  marginTop: '10em',
+                }}
+                documentRef={firstSectionRef}
+                hiddenSelectorEl=".sign-section"
+              />
             </CCardBody>
           </CCard>
           {/* THIRD CARD */}
@@ -1725,10 +1728,6 @@ const OrderDetail = (): JSX.Element => {
                         />
                       )}
                     </div>
-                    <DocumentActions
-                      documentRef={documentRef}
-                      hiddenSelectorEl="#sign-section-act"
-                    />
                     <div
                       id="sign-section-act"
                       style={{
@@ -1764,6 +1763,11 @@ const OrderDetail = (): JSX.Element => {
                     </div>
                   </CForm>
                 </CCol>
+                <DocumentActions
+                  style={{ marginTop: '20px' }}
+                  documentRef={documentRef}
+                  hiddenSelectorEl="#sign-section-act"
+                />
               </CCardBody>
             </CCard>
           ) : (
@@ -1949,7 +1953,6 @@ const OrderDetail = (): JSX.Element => {
                             </div>
                           )
                         })}
-                        <DocumentActions documentRef={commentRef} />
                       </div>
                     ) : (
                       <></>
@@ -1997,7 +2000,12 @@ const OrderDetail = (): JSX.Element => {
                             display: 'flex',
                             justifyContent: 'right',
                           }}
-                        ></div>
+                        >
+                          <DocumentActions
+                            style={{ marginTop: '2rem' }}
+                            documentRef={commentRef}
+                          />
+                        </div>
                       </div>
                     </div>
 

@@ -14,6 +14,7 @@ const DocumentActions: React.FC<Props> = ({
   documentRef,
   hiddenSelectorEl,
   loading,
+  style,
   ...props
 }) => {
   const hiddenElementRef = useRef<HTMLElement | null>(null)
@@ -25,7 +26,6 @@ const DocumentActions: React.FC<Props> = ({
   }, [])
 
   const handlePrintOrDownload = async (print = false, scale?: number) => {
-
     if (hiddenElementRef.current) {
       hiddenElementRef.current!.style.display = 'block'
       documentRef.current.appendChild(hiddenElementRef.current!)
@@ -45,6 +45,7 @@ const DocumentActions: React.FC<Props> = ({
         display: 'flex',
         justifyContent: 'end',
         gap: '10px',
+        ...style,
       }}
     >
       <CButton
